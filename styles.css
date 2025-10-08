@@ -1,0 +1,240 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif, 'Open Sans';
+    background-color: #fff; /* Changed from dark gray to white */
+    color: #3e2723; /* Dark brown text for contrast */
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo */
+.logo img {
+    height: 80px; /* Increased from 60px to 80px */
+    width: auto; /* Fixed width issue */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Header */
+.main-header {
+    background-color: #3e2723; /* Dark brown header background */
+    padding: 0.5rem 0; /* Reduced padding slightly to accommodate larger logo */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Ensures alignment with nav items */
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center; /* Ensures nav links stay centered vertically */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff; /* White text for navigation links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ffeb3b; /* Yellow hover effect */
+}
+
+/* Nav Toggle for Mobile */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+    width: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    height: 3px;
+    background: #fff; /* White hamburger lines */
+    border-radius: 2px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 60px; /* Reduce logo size slightly for mobile */
+    }
+
+    .main-header {
+        padding: 0.5rem 0; /* Adjust padding for smaller screens */
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Initially hidden off-screen */
+        height: 100vh;
+        width: 80%;
+        background-color: #3e2723; /* Dark brown background for mobile menu */
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 60px;
+        transition: 0.3s ease;
+    }
+
+    .nav.active {
+        left: 0; /* Show navigation when active */
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-left: 1rem;
+    }
+
+    .nav-toggle {
+        display: flex; /* Show toggle button on mobile */
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-image: url('afranomranpic.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff; /* White text for hero content */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+/* Semi-transparent dark brown overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffeb3b; /* Yellow heading */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #fff; /* White paragraph text */
+}
+
+/* Modern Button Design */
+.btn-modern {
+    position: relative;
+    background: linear-gradient(90deg, #3e2723, #5d4037); /* Brown gradient */
+    color: #fff; /* White text */
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2rem; /* Pill-shaped button */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+}
+
+.btn-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.btn-modern:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #3e2723; /* Dark brown shadow */
+}
+
+.btn-modern:hover::before {
+    transform: scaleX(1);
+}
+
+/* About Section */
+.about {
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffeb3b; /* Yellow heading */
+}
+
+.about p {
+    max-width: 800px;
+    margin: auto;
+    color: #3e2723; /* Dark brown text */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2e1a14; /* Darker brown for footer depth */
+    border-top: 2px solid #ffd700;
+    width: 100%;
+    color: white;
+}
+/* Language Switcher */
+.lang-switch {
+    color: #ffeb3b !important; /* Yellow language switcher */
+}
